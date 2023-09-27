@@ -1,0 +1,86 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "jsxFactory": "tsx",
+    "jsxFragmentFactory": "tsxFragment",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext.disposable",
+      "ES2022"
+    ],
+    "module": "amd",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "target": "ES2021",
+    "types": [
+      "mocha",
+      "wicg-file-system-access"
+    ],
+    "paths": {
+      "esri/*": [
+        "esri/*"
+      ],
+      "maquette": [
+        "esri/libs/maquette/index.ts"
+      ],
+      "maquette-query/*": [
+        "node_modules/maquette-query/dist/*"
+      ],
+      "test-data/*": [
+        "tests/data/*"
+      ],
+      "test-support/*": [
+        "tests/support/*"
+      ],
+      "zipjs": [
+        "node_modules/@zip.js/zip.js/index.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "esri/**/*",
+    "tests/**/*",
+    "test-apps/**/*",
+    "typings/tsd.d.ts"
+  ],
+  "exclude": [
+    "**/*flycheck*",
+    "**/node_modules/**",
+    "esri/webscene/spec/**/*.ts",
+    "test-apps/taster-widgets/Memory.tsx",
+    "test-apps/taster-widgets/PerformanceChart.ts",
+    "test-apps/taster-widgets/PerformanceStats.tsx",
+    "test-apps/taster-widgets/ResourceController.tsx",
+    "tests/memoryTests/scripts/*.ts",
+    "tests/support/scripts/*.ts",
+    "tests/support/testDependencyTracing/**/*.ts",
+    "tests/typingsTests/**"
+  ],
+  "watchOptions": {
+    "fallbackPolling": "dynamicPriority",
+    "excludeDirectories": [
+      "**/node_modules/**/*",
+      "output/**"
+    ],
+    "excludeFiles": [
+      "**/node_modules/**/*",
+      "output/**/*"
+    ]
+  }
+}
