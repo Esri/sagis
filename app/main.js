@@ -90,6 +90,9 @@ require([
       slideDiv.appendChild(img);
       div.appendChild(slideDiv);
 
+      slideDiv.addEventListener("click", function () {
+        slide.applyTo(view)
+      });
     }
 
     slides.forEach(function (slide) {
