@@ -8,14 +8,11 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext.disposable",
-      "ES2022"
-    ],
-    "module": "amd",
-    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM"],
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -23,20 +20,19 @@
     "skipDefaultLibCheck": true,
     "strict": true,
     "strictFunctionTypes": false,
-    "target": "ES2021",
+    "target": "ES2020",
     "types": [
-      "dom-view-transitions",
-      "mocha",
-      "wicg-file-system-access"
+      "node",
+      "ws"
     ],
     "paths": {
-      "app/*": [
-        "app/*"
+      "src/*": [
+        "src/*"
       ]
     }
   },
   "include": [
-    "app/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "**/node_modules/**"

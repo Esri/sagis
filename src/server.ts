@@ -5,7 +5,7 @@ import { readFileSync } from "fs";
 import { createServer } from "https";
 
 // ws
-import * as WebSocket from "ws";
+import WebSocket from "ws";
 
 const server = createServer({
   cert: readFileSync("/etc/ssl/certs/apache-selfsigned.crt"),
