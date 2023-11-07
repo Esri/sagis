@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Fascinate");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: floralwhite;
+}
+
+#SceneView {
+  height: 100%;
+  width: 100%;
+}
+
+.esri-component.esri-attribution.esri-widget {
+  opacity: 0.6;
+  background-color: transparent;
+}
+
+#slides {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+img {
+  border: 1px solid black;
+}
+
+#benchmark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  font-family: "Avenir Next W01", "Avenir Next W00", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 1.7em;
+  font-weight: bold;
+  z-index: 2;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
