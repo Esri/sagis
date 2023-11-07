@@ -63,10 +63,9 @@ require([
 
     var slides = view.map.presentation.slides;
     var slidesDiv = document.getElementById("slides");
-    var benchmarkDiv = document.getElementById("benchmark");
 
     function addSlide(slide, time) {
-      var div = slidesDiv || benchmarkDiv;
+      var div = slidesDiv;
       if (!div) {
         return;
       }
