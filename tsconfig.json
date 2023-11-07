@@ -8,10 +8,12 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "jsxFactory": "tsx",
-    "jsxFragmentFactory": "tsxFragment",
-    "lib": ["dom", "dom.iterable", "esnext.disposable", "ES2022"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext.disposable",
+      "ES2022"
+    ],
     "module": "amd",
     "moduleResolution": "node",
     "noImplicitOverride": true,
@@ -22,32 +24,32 @@
     "strict": true,
     "strictFunctionTypes": false,
     "target": "ES2021",
-    "types": ["dom-view-transitions", "mocha", "wicg-file-system-access"],
+    "types": [
+      "dom-view-transitions",
+      "mocha",
+      "wicg-file-system-access"
+    ],
     "paths": {
-      "esri/*": ["esri/*"],
-      "maquette": ["esri/libs/maquette/index.ts"],
-      "maquette-query/*": ["node_modules/maquette-query/dist/*"],
-      "test-data/*": ["tests/data/*"],
-      "test-support/*": ["tests/support/*"],
-      "videojs": ["node_modules/video.js/dist/types/video.d.ts"],
-      "zipjs": ["node_modules/@zip.js/zip.js/index.d.ts"]
+      "app/*": [
+        "app/*"
+      ]
     }
   },
-  "include": ["esri/**/*", "tests/**/*", "test-apps/**/*", "typings/tsd.d.ts"],
+  "include": [
+    "app/**/*"
+  ],
   "exclude": [
-    "**/*flycheck*",
-    "**/node_modules/**",
-    "esri/webscene/spec/**/*.ts",
-    "test-apps/taster-widgets/Memory.tsx",
-    "test-apps/taster-widgets/ResourceController.tsx",
-    "tests/memoryTests/scripts/*.ts",
-    "tests/support/scripts/*.ts",
-    "tests/support/testDependencyTracing/**/*.ts",
-    "tests/typingsTests/**"
+    "**/node_modules/**"
   ],
   "watchOptions": {
     "fallbackPolling": "dynamicPriority",
-    "excludeDirectories": ["**/node_modules/**/*", "output/**"],
-    "excludeFiles": ["**/node_modules/**/*", "output/**/*"]
+    "excludeDirectories": [
+      "**/node_modules/**/*",
+      "output/**"
+    ],
+    "excludeFiles": [
+      "**/node_modules/**/*",
+      "output/**/*"
+    ]
   }
 }
