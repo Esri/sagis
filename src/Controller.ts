@@ -47,12 +47,13 @@ export class Controller {
   }
 
   private _initClient(layout: Layout): void {
+    console.log(`T${layout.row},${layout.column}`);
     this._socket.onopen = () =>
       // Registering as a client will push global state, wait for not updating st all initial state is set
       whenOnce(() => !this._view.updating).then(() => {
         const camera = this._view.camera;
-        (camera as any).layout.row = layout.row;
-        (camera as any).layout.column = layout.column;
+        camera.layout.row = layout.row;
+        camera.layout.column = layout.column;
         this._view.camera = camera;
 
         this._socket.send(`T${layout.row},${layout.column}`);
@@ -76,8 +77,8 @@ export class Controller {
           const camera = this._view.camera;
           const tile = message.split(",");
 
-          (camera as any).layout.rows = parseFloat(tile[0]);
-          (camera as any).layout.columns = parseFloat(tile[1]);
+          camera.layout.rows = parseFloat(tile[0]);
+          camera.layout.columns = parseFloat(tile[1]);
           this._view.camera = camera;
           break;
         }
