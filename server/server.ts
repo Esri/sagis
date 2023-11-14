@@ -5,7 +5,7 @@ import { readFileSync } from "fs";
 import { createServer } from "https";
 
 // ws
-import WebSocket from "ws";
+import * as WebSocket from "ws";
 
 const server = createServer({
   cert: readFileSync("/etc/ssl/certs/apache-selfsigned.crt"),
@@ -46,7 +46,7 @@ wss.on("connection", (socket) => {
         wss.clients.forEach((client) => client.send(`T${size},${size}`)); // resize all clients
         state.forEach((buffer) => socket.send(buffer)); // reset new client with last seen state
 
-        console.log(`${wss.clients.size} clients ${width}x${height}`);
+        console.log(`\n${wss.clients.size} clients ${width}x${height}`);
         break;
       }
     }
