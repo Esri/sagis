@@ -25,7 +25,7 @@ export class Controller {
     layout: Layout | null = null
   ) {
     this._socket = new WebSocket(`wss://${server}:8080/`);
-    this._socket.onerror = (event) => console.log(`Sagis server error: ${event}`);
+    this._socket.onerror = (event: ErrorEvent) => console.log(`Sagis server error: ${event.message}.`);
 
     if (layout) {
       this._initClient(layout);
