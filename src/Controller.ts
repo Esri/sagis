@@ -10,7 +10,8 @@ import { watch, whenOnce } from "@arcgis/core/core/reactiveUtils";
 import Handles from "@arcgis/core/core/Handles";
 import { Layout } from "./Layout";
 
-/** Interface to or from a distributed viewing session.
+/**
+ * Interface to or from a distributed viewing session.
  *
  * The controller on the viewer sends messages to the server, which re-broadcasts this message to all clients. Only
  * a special tile message is interpreted by the server, which keeps the global display wall layout state.
