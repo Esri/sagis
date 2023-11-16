@@ -27,16 +27,21 @@ wss.on("connection", (socket) => {
     process.stdout.write(type);
 
     switch (type) {
-      default:
+      default: {
+        const oldState = state.get(type);
+        if (oldState === data) {
+          break;
+        }
+
         wss.clients.forEach((client) => {
           if (client !== socket && client.readyState === WebSocket.OPEN) {
             client.send(data, { binary });
           }
         });
         state.delete(type); // preserve order
-        state.set(type, buffer.toString());
+        state.set(type, data);
         break;
-
+      }
       case "T": {
         const tile = message.split(",");
         width = Math.max(width, Math.abs(parseFloat(tile[0]) * 2 + 1));
