@@ -9,25 +9,13 @@
       href="https://js.arcgis.com/4.28/esri/css/main.css"
     />
     <link rel="stylesheet" href="custom.css" />
-    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
-    <script>
-      var dojoConfig = {
-        async: true,
-        packages: [
-          {
-            name: "app",
-            location: location.pathname.replace(/\/[^/]+$/, "") + "/app",
-          },
-        ],
-      };
-    </script>
   </head>
 
   <body>
     <div id="SceneView"></div>
     <div id="slides"></div>
 
-    <script src="https://js.arcgis.com/4.28"></script>
+    <script src="https://js.arcgis.com/4.29"></script>
     <script type="module" src="/src/client.ts"></script>
   </body>
 </html>
