@@ -11,6 +11,7 @@ const server = createServer({
   cert: readFileSync("/etc/ssl/certs/apache-selfsigned.crt"),
   key: readFileSync("/home/eile/.ssl/apache-selfsigned.key")
 });
+
 const wss = new WebSocket.WebSocketServer({ server });
 
 let width = 1;
@@ -58,4 +59,4 @@ wss.on("connection", (socket) => {
   });
 });
 
-server.listen(8080);
+server.listen(9001);
