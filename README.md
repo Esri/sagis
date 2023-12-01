@@ -4,13 +4,15 @@ SaGIS synchronizes the camera and other state of a set of browser instances to c
 
 For collaborative settings, such as control rooms and presentations, rendering high resolution 3D maps on a large display provides both context and detail for a large group. This type of setup cannot be realized in a single web browser, due to performance and memory constraints.
 
-Sagis solves this problem by distributed the rendering over a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then driven by a viewer instance on a desktop, laptop or mobile device. All instances are synchronized by a websocket server.
+Sagis solves this problem by distributed the rendering over a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then controlled by a viewer instance on a desktop, laptop or mobile device. One central websocket server synchronizes the viewer and display instances.
+
+![Overview](doc/architecture.jpg)
 
 ## Setup
 
 Install dependencies: `npm install`.
 
-The first process to start in a cluster is the websocket server which will synchronize all clients using `npm run server`. The server maintains the overall display layout, as well as the last state seen to initialize display client joining the session later.
+The first process to start in a cluster is the websocket server which will synchronize all clients using `npm run server`. The server maintains the overall display layout, as well as the last state seen to initialize late-joining display clients.
 
 The second step is to configure and start the web server for the client and viewer applications: `npm run dev`.
 
@@ -28,4 +30,4 @@ The controller on the viewer sends messages to the server, which re-broadcasts t
 
 Messages are one character for the message type, followed by the message payload. The payload is typically the state in JSON. The viewer and client side deserialization and serialization must match for correct operation.
 
-This sample implementation synchronizes some default state for viewing web scenes. Real-world implementations are expected to extend this code according to the applications` need.
+This sample implementation synchronizes some default state for viewing web scenes (webscene, camera, lighting, weather, layer visiblity). Applications are expected to extend this code for their needs.
