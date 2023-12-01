@@ -10,15 +10,11 @@ Sagis solves this problem by distributed the rendering over a distributed cluste
 
 ## Setup
 
-Install dependencies: `npm install`.
-
-The first process to start in a cluster is the websocket server which will synchronize all clients using `npm run server`. The server maintains the overall display layout, as well as the last state seen to initialize late-joining display clients.
-
-The second step is to configure and start the web server for the client and viewer applications: `npm run dev`.
-
-The third step is to configure and launch all display clients: Launch one full-screen web browser on each computer, load and configure the tile for each display: `http://webserver:9001/client.html?server=wssmachine&row=1&column=1`. Replace webserver with the hostname running the web server. Replace wssmachine with the hostname running the websocket server. The row and column parameter are relative to the center of the screen, a 2x2 wall would have four clients with `[-0.5, -0.5], [-0.5, 0.5], [0.5, -0.5], [0.5, 0.5]` as their row/column. The server will compute the total shape of the wall from all clients.
-
-The last step is to launch the view application from the control machine by pointing a web browser to `http://webserver:9001/viewer.html?server=wssmachine`. As with the clients, replace webserver and wssmachine with your hostnames.
+1. `npm install` installs all dependencies.
+2. `npm run server` starts the websocket server. It it the first process in a cluster, it will synchronize all clients. The server maintains the overall display layout, as well as the last state seen to initialize late-joining display clients.
+3. `npm run dev` configures and starts the web server for the client and viewer applications.
+4. The next step is to configure and launch all display clients: Launch one full-screen web browser on each computer, load and configure the tile for each display: `http://webserver:9001/client.html?server=wssmachine&row=1&column=1`. Replace webserver with the hostname running the web server. Replace wssmachine with the hostname running the websocket server. The row and column parameter are relative to the center of the screen, a 2x2 wall would have four clients with `[-0.5, -0.5], [-0.5, 0.5], [0.5, -0.5], [0.5, 0.5]` as their row/column. The server will compute the total shape of the wall from all clients.
+5. The last step is to launch the view application from the control machine by pointing a web browser to `http://webserver:9001/viewer.html?server=wssmachine`. As with the clients, replace webserver and wssmachine with your hostnames.
 
 The viewer should now connect to the server, and all clients should synchronize their view with the interactions on the viewer application.
 
