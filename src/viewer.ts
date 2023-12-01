@@ -8,35 +8,35 @@ import { Controller } from "./Controller";
 
 const params = new Map<string, string>();
 
-const matches = window.parent.location.href.match(/[?&]+([^=&]+)=([^&]*)/gi);
-matches?.forEach((_match, _index, matches) => params.set(matches[0], matches[1]));
+const matches = window.parent.location.href.match(/[?&]+([^&]+)/gi);
+matches?.forEach((match, _index) => {
+  const tokens = match.split("=");
+  params.set(tokens[0].substring(1), tokens[1]);
+});
 
 const portal = params.get("portal");
 if (portal) {
   // config.portalUrl = portal;
 }
 
-// const sceneView = document.getElementById("SceneView");
 const view = new SceneView({ container: "SceneView" });
 
 const url = params.get("url");
+const webscene = params.get("webscene");
 if (url) {
-  view.map = new WebScene({ basemap: "topo", ground: "world-elevation" });
+  view.map = new WebScene({ basemap: "topo-3d", ground: "world-elevation" });
   Layer.fromArcGISServerUrl({ url: url }).then(function (layer) {
     view.map.layers.add(layer);
-    layer.when(function () {
-      view.goTo(layer.fullExtent);
-    });
+    layer.when(() => view.goTo(layer.fullExtent));
   });
-} else {
-  const webscene = params.get("webscene") ?? "3fedc732d1be4af9b23ae2348f45ce7d";
+} else if (webscene) {
   if (webscene.startsWith("http")) {
-    esriRequest(webscene).then(function (json) {
-      view.map = WebScene.fromJSON(json.data);
-    });
+    esriRequest(webscene).then((json) => (view.map = WebScene.fromJSON(json.data)));
   } else {
-    view.map = new WebScene({ portalItem: { id: webscene, portal: portal as any } });
+    view.map = new WebScene({ portalItem: { id: webscene } });
   }
+} else {
+  view.map = new WebScene({ basemap: "topo-3d", ground: "world-elevation" });
 }
 
 // The view must be ready (or resolved) before you can access the properties of the WebScene
