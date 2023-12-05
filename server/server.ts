@@ -8,8 +8,8 @@ import { createServer } from "https";
 import * as WebSocket from "ws";
 
 const server = createServer({
-  cert: readFileSync("/etc/ssl/certs/apache-selfsigned.crt"),
-  key: readFileSync("/home/eile/.ssl/apache-selfsigned.key")
+  cert: readFileSync("./ssl/selfsigned.crt"),
+  key: readFileSync("./ssl/selfsigned.key")
 });
 
 const wss = new WebSocket.WebSocketServer({ server });
@@ -59,4 +59,4 @@ wss.on("connection", (socket) => {
   });
 });
 
-server.listen(9001);
+server.listen(42001);
