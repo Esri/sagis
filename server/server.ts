@@ -45,9 +45,9 @@ wss.on("connection", (socket) => {
       }
       case "T": {
         const tile = message.split(",");
-        width = Math.max(width, Math.abs(parseFloat(tile[0]) * 2 + 1));
-        height = Math.max(height, Math.abs(parseFloat(tile[1]) * 2 + 1));
-        const size = Math.min(width, height, 1);
+        width = Math.max(width, Math.abs(parseFloat(tile[0])) + 1);
+        height = Math.max(height, Math.abs(parseFloat(tile[1])) + 1);
+        const size = Math.min(width, height);
 
         wss.clients.forEach((client) => client.send(`T${size},${size}`)); // resize all clients
         state.forEach((buffer) => socket.send(buffer)); // reset new client with last seen state

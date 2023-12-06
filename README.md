@@ -48,15 +48,16 @@ ssh hactar09 "DISPLAY=:0 ./Downloads/opt/google/chrome/chrome --user-data-dir=/t
 Hide mouse cursor on all displays:
 
 ```bash
-ssh hactar01 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar02 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar03 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar04 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar05 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar06 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar07 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar08 "DISPLAY=:0 ~/src/hhpc"&
-ssh hactar09 "DISPLAY=:0 ~/src/hhpc"&
+gcc -o ./src/hhpc ./src/hhpc.c -lX11
+ssh hactar01 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar02 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar03 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar04 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar05 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar06 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar07 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar08 "DISPLAY=:0 ./src/hhpc"&
+ssh hactar09 "DISPLAY=:0 ./src/hhpc"&
 ```
 
 Kill all display clients:
