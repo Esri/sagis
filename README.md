@@ -32,7 +32,7 @@ This sample implementation synchronizes some default state for viewing web scene
 
 Start all browser instances on a 3x3 display wall including display bezel compensation:
 
-```
+```bash
 ssh hactar01 "DISPLAY=:0 ./Downloads/opt/google/chrome/chrome --user-data-dir=/tmp 'https://hactar10.ifi.uzh.ch:42000/client.html?row=2.24&column=0&server=hactar10' --ignore-certificate-errors --kiosk --start-fullscreen --window-size=2560,1440" &
 ssh hactar02 "DISPLAY=:0 ./Downloads/opt/google/chrome/chrome --user-data-dir=/tmp 'https://hactar10.ifi.uzh.ch:42000/client.html?row=1.12&column=0&server=hactar10' --ignore-certificate-errors --kiosk --start-fullscreen --window-size=2560,1440" &
 ssh hactar03 "DISPLAY=:0 ./Downloads/opt/google/chrome/chrome --user-data-dir=/tmp 'https://hactar10.ifi.uzh.ch:42000/client.html?row=0&column=0&server=hactar10' --ignore-certificate-errors --kiosk --start-fullscreen --window-size=2560,1440" &
@@ -46,21 +46,21 @@ ssh hactar09 "DISPLAY=:0 ./Downloads/opt/google/chrome/chrome --user-data-dir=/t
 
 Hide mouse cursor on all displays:
 
-```
-ssh hactar01 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar02 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar03 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar04 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar05 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar06 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar07 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar08 "DISPLAY=:0 ~/Downloads/hhpc"&
-ssh hactar09 "DISPLAY=:0 ~/Downloads/hhpc"&
+```bash
+ssh hactar01 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar02 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar03 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar04 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar05 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar06 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar07 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar08 "DISPLAY=:0 ~/src/hhpc"&
+ssh hactar09 "DISPLAY=:0 ~/src/hhpc"&
 ```
 
 Kill all display clients:
 
-```
+```bash
 ssh hactar01 killall chrome
 ssh hactar02 killall chrome
 ssh hactar03 killall chrome
