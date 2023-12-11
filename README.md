@@ -19,6 +19,12 @@ _3x3 tiled display wall at the Visualization and Multimedia Laboratory, Universi
 
 The viewer should now connect to the server, and all clients should synchronize their view with the interactions on the viewer application.
 
+### Advanced Display Layout
+
+Square layouts, such as the one featured above, are simple to set up. For more irregular layouts it helps to understand how the server and the ArcGIS Maps SDK for JavaScript compute the camera for each tile.
+
+The server computes the layout to fit the shorter edge on the viewer, that is, it takes the minimum of the wall width and height for the layout rows and columns parameters. Using non-square layouts would distort the view. A 1x2 wall therefore configures a 1x1 layout. The extra column can then be used to see more data than the viewer. To keep the rendering on the wall centered, use fractional -0.5 and 0.5 column parameters for the two tiles. Likewise, a 1x3 wall would use -1, 0, and 1 as columns, mirror the viewer image on the middle display and extend the view on the left and right displays.
+
 ### Viewer URL parameters
 
 - [server=string]: The address of the websocket synchronization server. Default is "localhost".
