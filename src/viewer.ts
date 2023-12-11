@@ -3,6 +3,7 @@ import WebScene from "@arcgis/core/WebScene";
 import Slide from "@arcgis/core/webscene/Slide";
 import Layer from "@arcgis/core/layers/Layer";
 import esriRequest from "@arcgis/core/request";
+import config from "@arcgis/core/config";
 
 import { Controller } from "./Controller";
 
@@ -16,7 +17,7 @@ matches?.forEach((match, _index) => {
 
 const portal = params.get("portal");
 if (portal) {
-  // config.portalUrl = portal;
+  config.portalUrl = portal;
 }
 
 const view = new SceneView({ container: "SceneView" });

@@ -7,7 +7,7 @@ For collaborative settings, such as control rooms and presentations, rendering h
 Sagis solves this problem by distributed the rendering over a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then controlled by a viewer instance on a desktop, laptop or mobile device. One central websocket server synchronizes the viewer and display instances.
 
 ![Overview](doc/architecture.jpg)
-*3x3 tiled display wall at the Visualization and Multimedia Laboratory, University of Zurich, rendering a webscene at 7680x4320 pixels*
+_3x3 tiled display wall at the Visualization and Multimedia Laboratory, University of Zurich, rendering a webscene at 7680x4320 pixels_
 
 ## Setup
 
@@ -18,6 +18,19 @@ Sagis solves this problem by distributed the rendering over a distributed cluste
 5. The last step is to launch the view application from the control machine by pointing a web browser to `http://webserver:42000/viewer.html?server=wssmachine`. As with the clients, replace webserver and wssmachine with your hostnames.
 
 The viewer should now connect to the server, and all clients should synchronize their view with the interactions on the viewer application.
+
+### Viewer URL parameters
+
+- [server=string]: The address of the websocket synchronization server. Default is "localhost".
+- [portal=string]: The ArcGIS online portal address.
+- [webscene=string]: The webscene ID on the portal.
+- [url=string]: A layer URL to load a single layer.
+
+### Client URL parameters
+
+- [server=string]: The address of the websocket synchronization server. Default is "localhost".
+- [column=number]: The x coordinate of the display tile. 0 is at the left. Fractional values are valid.
+- [row=number]: The y coordinate of the display tile. 0 is at the bottom. Fractional values are valid.
 
 ## State Synchronization
 
