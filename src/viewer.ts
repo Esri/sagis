@@ -71,7 +71,7 @@ view.when(function () {
     div.appendChild(slideDiv);
 
     slideDiv.addEventListener("click", function () {
-      slide.applyTo(view);
+      slide.applyTo(view, { speedFactor: 0.3 });
     });
   }
 
