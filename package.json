@@ -36,10 +36,8 @@
   },
   "scripts": {
     "start": "vite",
-    "dev": "vite",
     "build": "tsc && vite build",
     "watch": "tsc --watch",
-    "serve": "vite preview",
     "server": "ts-node --project server/tsconfig.json ./server/server.ts"
   },
   "dependencies": {
