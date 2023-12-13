@@ -43,11 +43,15 @@ export class Controller {
     const initial = { initial: true };
     const broadcastValue = (type: string, value: any, context?: any): void => {
       if (value != null && this._socket.readyState === WebSocket.OPEN) {
-        if (typeof value === "object" && "toJSON" in value) {
-          value = value.toJSON(context);
+        try {
+          if (typeof value === "object" && "toJSON" in value) {
+            value = value.toJSON(context);
+          }
+          const message = typeof value === "string" ? value : JSON.stringify(value);
+          this._socket.send(`${type}${message}`);
+        } catch (e: any) {
+          console.log(`Error serializing '${type}': ${e.message}`);
         }
-        const message = typeof value === "string" ? value : JSON.stringify(value);
-        this._socket.send(`${type}${message}`);
       }
     };
 
@@ -85,17 +89,17 @@ export class Controller {
       ),
       watch(
         () => this._view.map,
-        (map) => broadcastValue("W", map),
+        (map: WebScene) => map.loadAll().then(() => broadcastValue("W", map)),
         initial
       ),
       watch(
         () => this._view.map.basemap,
-        (basemap) => broadcastValue("B", basemap, { origin: "web-scene" }), // origin needed for SceneLayer serialization
+        (basemap) => basemap.loadAll().then(() => broadcastValue("B", basemap)),
         initial
       ),
       watch(
         () => this._view.map.ground,
-        (ground) => broadcastValue("G", ground),
+        (ground) => ground.loadAll().then(() => broadcastValue("G", ground)),
         initial
       ),
       this._view.map.allLayers.on("change", (event) => {
@@ -159,7 +163,7 @@ export class Controller {
           break;
 
         case "B": {
-          Basemap.fromJSON(json, { origin: "web-scene" }) // origin needed for SceneLayer serialization
+          Basemap.fromJSON(json)
             .load()
             .then((basemap: Basemap) => (this._view.map.basemap = basemap));
           break;
