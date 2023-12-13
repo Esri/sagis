@@ -35,7 +35,8 @@
     "node": ">=16.15"
   },
   "scripts": {
-    "start": "vite",
+    "start": "npm-run-all --parallel server vite",
+    "vite": "vite",
     "build": "tsc && vite build",
     "watch": "tsc --watch",
     "server": "ts-node --project server/tsconfig.json ./server/server.ts"
