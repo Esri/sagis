@@ -3,10 +3,12 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -14,21 +16,9 @@ body {
   background-color: floralwhite;
 }
 
-#SceneView {
-  height: 100%;
-  width: 100%;
-}
-
 .esri-component.esri-attribution.esri-widget {
   opacity: 0.6;
   background-color: transparent;
-}
-
-#slides {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 img {
@@ -46,4 +36,30 @@ header {
   font-weight: bold;
   z-index: 2;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+div.top {
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+
+div.top:nth-of-type(1) {
+  background: #ccc;
+}
+
+div.top:nth-of-type(2) {
+  background: #bbb;
+  border-left: 1px solid #f00;
+}
+
+div.top:nth-of-type(3) {
+  background: #aaa;
+  border-top: 1px solid #f00;
+}
+
+div.top:nth-of-type(4) {
+  background: #ddd;
+  border-top: 1px solid #f00;
+  border-left: 1px solid #f00;
 }
