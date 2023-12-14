@@ -78,6 +78,11 @@ export class Controller {
         initial
       ),
       watch(
+        () => this._view.environment.lighting.directShadowsEnabled,
+        () => broadcastValue("L", this._view.environment.lighting),
+        initial
+      ),
+      watch(
         () => this._view.viewpoint,
         (viewpoint) => broadcastValue("V", viewpoint),
         initial
