@@ -1,13 +1,18 @@
 # Scalable GIS Renderer for the 3D ArcGIS Maps SDK for JavaScript
 
-SaGIS synchronizes the camera and other state of a set of browser instances to create a single, large view of multiple displays. This open source project is a template for custom applications.
+SaGIS synchronizes the camera and other application state between a set of browser instances to create a single, large view of multiple displays. This open source project is a template for custom applications.
 
 For collaborative settings, such as control rooms and presentations, rendering high resolution 3D maps on a large display provides both context and detail for a large group. This type of setup cannot be realized in a single web browser, due to performance and memory constraints.
 
-Sagis solves this problem by distributed the rendering over a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then controlled by a viewer instance on a desktop, laptop or mobile device. One central websocket server synchronizes the viewer and display instances.
+Sagis solves this problem by rendering using a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then controlled by a viewer instance on a desktop, laptop or mobile device. One central websocket server synchronizes the viewer and display instances.
 
 ![Overview](doc/architecture.jpg)
 _3x3 tiled display wall at the Visualization and Multimedia Laboratory, University of Zurich, rendering a webscene at 7680x4320 pixels_
+
+## Requirements
+
+- Experience in developing applications using the ArcGIS Maps SDK for JavaScript
+- Basic understanding on managing a rendering cluster for a tiled display wall
 
 ## Setup
 
