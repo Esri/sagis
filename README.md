@@ -42,6 +42,14 @@ The server computes the layout to fit the shorter edge on the viewer, that is, i
 - [column=number]: The x coordinate of the display tile. 0 is at the left. Fractional values are valid.
 - [row=number]: The y coordinate of the display tile. 0 is at the bottom. Fractional values are valid.
 
+Given the setup from the picture above, each client ends up with the following row, column parameters:
+
+![Overview](doc/layout.png)
+
+The size of the bezels between displays, relative to the screen width or height, is 0.07 or 0.12, respectively. The "column" bezel width is bigger since the screen height is less than the width, making the relative size of the bezel larger.
+
+We start at the lower right corner with 0, 0 for row and column, and then add 1.07 or 1.12 for rows and columns, counting the display itself (1.0) and the relative bezel width.
+
 ## State Synchronization
 
 Both the client and the viewer use the same [controller implementation](src/Controller.ts) to synchronize their state.
