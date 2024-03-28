@@ -6,6 +6,8 @@ For collaborative settings, such as control rooms and presentations, rendering h
 
 SaGIS solves this problem by rendering using a distributed cluster, where each display is driven by a separate browser instance, typically on a separate computer. The display is then controlled by a viewer instance on a desktop, laptop or mobile device. One central websocket server synchronizes the viewer and display instances.
 
+[Read our Blog Post](https://www.esri.com/arcgis-blog/products/js-api-arcgis/3d-gis/sagis-see-more-of-your-3d-web-content/)
+
 ![Overview](doc/architecture.jpg)
 _3x3 tiled display wall at the Visualization and Multimedia Laboratory, University of Zurich, rendering a webscene at 7680x4320 pixels_
 
